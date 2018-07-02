@@ -1,0 +1,26 @@
+
+.button {
+    -fx-text-fill: #5264AE;
+    -fx-font-size: 26px;
+}
+
+.dialog-pane .label {
+    -fx-font-size: 26px;
+}
+
+.jfx-text-field, .text-center {
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+
+.combo-box .cell {
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+
+.mainWindow {
+    -fx-border-color: black;
+    -fx-border-radius: 1em;
+    -fx-background-radius: 1em;
+    -fx-background-color: transparent;
+}

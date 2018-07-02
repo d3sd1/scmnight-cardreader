@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.Cursor ?>
+
+<AnchorPane id="AnchorPane" styleClass="main" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller">
+    <children>
+        <VBox fx:id="paneMainContainer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <GridPane fx:id="paneToolBar" onMouseDragged="#navDragWindow" onMousePressed="#navClickDragWindow" styleClass="appbar" VBox.vgrow="NEVER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="40.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" styleClass="navigation_bar" GridPane.hgrow="NEVER">
+                            <children>
+                                <ImageView onMouseClicked="#navOpenMenu" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../img/menu.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" styleClass="title_bar" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="title" text="SCM Night App" fx:id="appTitle">
+                                    <tooltip>
+                                        <Tooltip fx:id="tooltipVersion" />
+                                    </tooltip>
+                                </Label>
+                            </children>
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" styleClass="icons-bar" GridPane.columnIndex="2">
+                            <children>
+                                <ImageView onMouseClicked="#navMinimize" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../img/minimize.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ImageView>
+                                <ImageView onMouseClicked="#navReload" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../img/reload.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                            <GridPane.margin>
+                                <Insets />
+                            </GridPane.margin>
+                        </HBox>
+                    </children>
+                </GridPane>
+                <StackPane fx:id="statusBackground" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label fx:id="status" styleClass="mainMessage" alignment="CENTER" contentDisplay="CENTER" text="Label" textAlignment="CENTER" StackPane.alignment="CENTER" />
+                        <Label fx:id="statusMessage" styleClass="statusMessage" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" StackPane.alignment="BOTTOM_CENTER" />
+                    </children>
+                </StackPane>
+            </children>
+        </VBox>
+        <Pane fx:id="paneEffectDisable" onMouseClicked="#navExitFrames" styleClass="frame" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <AnchorPane fx:id="menuOpener" onMouseClicked="#navExitFrames" styleClass="navigation-drawer" AnchorPane.topAnchor="0.0">
+            <VBox>
+                <children>
+                    <AnchorPane styleClass="item-selectable" onMouseClicked="#menuManualEntrance" fx:id="manualEntrance">
+                        <children>
+                            <ImageView pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../img/manual.png" />
+                                </image>
+                            </ImageView>
+                            <Label text="Entrada manual">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Label>
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane styleClass="item-selectable" onMouseClicked="#menuOpenSCMPanel">
+                        <children>
+                            <ImageView pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../img/web.png" />
+                                </image>
+                            </ImageView>
+                            <Label text="Panel SCM">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Label>
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane styleClass="item-selectable" onMouseClicked="#menuCloseAppPanel" fx:id="closeApp">
+                        <children>
+                            <ImageView pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../img/close.png" />
+                                </image>
+                            </ImageView>
+                            <Label text="Cerrar aplicación">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Label>
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane styleClass="item-selectable" onMouseClicked="#menuForceEntrancePanel" fx:id="forceEntrance">
+                        <children>
+                            <ImageView pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../img/arrow.png" />
+                                </image>
+                            </ImageView>
+                            <Label text="Forzar entrada">
+                                <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                </cursor>
+                            </Label>
+                        </children>
+                    </AnchorPane>
+                </children>
+            </VBox>
+        </AnchorPane>
+    </children>
+</AnchorPane>

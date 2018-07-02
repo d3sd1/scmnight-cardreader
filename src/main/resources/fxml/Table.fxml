@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane fx:id="mainDialog" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+           stylesheets="@table.css">
+    <children>
+        <FlowPane fx:id="main">
+            <children>
+                <JFXTreeTableView fx:id="treeView" prefHeight="400.0" prefWidth="534.0"/>
+                <JFXButton fx:id="sendBtn" buttonType="FLAT" prefHeight="100.0" prefWidth="534.0"/>
+            </children>
+        </FlowPane>
+    </children>
+</StackPane>

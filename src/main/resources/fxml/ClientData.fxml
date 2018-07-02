@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.collections.FXCollections ?>
+<?import javafx.scene.control.Label ?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<StackPane fx:id="mainDialog" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+           stylesheets="@data.css" styleClass="mainWindow">
+    <children>
+        <FlowPane fx:id="main" prefHeight="400.0" prefWidth="534.0">
+            <children>
+                <JFXTextField fx:id="dni" promptText="DNI, NIE o PASAPORTE" prefHeight="50" prefWidth="267.0"/>
+                <JFXButton fx:id="searchBtn" text="Buscar datos" buttonType="FLAT" prefHeight="100.0" prefWidth="267.0"/>
+                <JFXTextField fx:id="name" promptText="Nombre" prefHeight="50" prefWidth="267.0"/>
+                <JFXComboBox fx:id="gender" prefHeight="50" prefWidth="267.0" promptText="Seleccionar género"/>
+                <JFXTextField fx:id="surname1" promptText="Primer apellido" prefHeight="50" prefWidth="267.0"/>
+                <JFXTextField fx:id="surname2" promptText="Segundo apellido" prefHeight="50" prefWidth="267.0"/>
+                <JFXDatePicker fx:id="birthdate" promptText="Fecha de nacimiento" prefHeight="50" prefWidth="267.0"/>
+                <JFXComboBox fx:id="nationality" prefHeight="50" prefWidth="267.0" promptText="Seleccionar nacionalidad">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <Label styleClass="text-center">
+                                Item 1
+                            </Label>
+                            <Label styleClass="text-center">
+                                Item 2
+                            </Label>
+                        </FXCollections>
+                    </items>
+                </JFXComboBox>
+                <JFXTextField fx:id="email" promptText="Email" prefHeight="50" prefWidth="267.0"/>
+                <JFXTextField fx:id="address" promptText="Dirección" prefHeight="50" prefWidth="267.0"/>
+                <JFXButton fx:id="sendBtn" buttonType="FLAT" prefHeight="100.0" prefWidth="267.0"/>
+                <JFXButton fx:id="closeBtn" buttonType="FLAT" prefHeight="100.0" prefWidth="267.0"/>
+            </children>
+        </FlowPane>
+    </children>
+</StackPane>
