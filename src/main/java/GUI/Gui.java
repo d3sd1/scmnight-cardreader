@@ -49,8 +49,7 @@ public class Gui extends Application {
             primaryStage.setMinWidth(primaryStage.getWidth());
 
             Platform.setImplicitExit(false);
-            primaryStage.setOnCloseRequest((WindowEvent event) ->
-            {
+            primaryStage.setOnCloseRequest((WindowEvent event) -> {
                 event.consume();
             });
         } catch (IOException ex) {
@@ -60,13 +59,7 @@ public class Gui extends Application {
     }
 
     public static void main(String[] args) {
-        for (String arg : args) {
-            if(arg.equals("--env=dev"))
-            {
-                Constants.IS_DEV = true;
-            }
-        }
-        System.out.println("DEV ENVIRONMENT: " + Boolean.toString(Constants.IS_DEV));
+        Constants.setEnv(args);
         launch();
     }
 

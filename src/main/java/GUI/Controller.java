@@ -216,7 +216,7 @@ public class Controller implements Initializable
     {
         try
         {
-            Desktop.getDesktop().browse(new URL(Constants.webLocalScm).toURI());
+            Desktop.getDesktop().browse(new URL(Constants.SCM_WEB).toURI());
         }
         catch (Exception e)
         {
