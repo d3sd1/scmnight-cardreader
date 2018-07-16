@@ -1,9 +1,14 @@
 package GUI;
 
 import scm.App;
+
 import java.io.IOException;
+import java.util.Arrays;
+
 import javafx.application.Application;
+
 import static javafx.application.Application.launch;
+
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -14,16 +19,14 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
+import scm.Constants;
 
-public class Gui extends Application
-{
+public class Gui extends Application {
 
     @Override
-    public void start(Stage primaryStage)
-    {
+    public void start(Stage primaryStage) {
 
-        try
-        {
+        try {
             Parent screen0 = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
             primaryStage.initStyle(StageStyle.UNDECORATED);
             Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
@@ -50,16 +53,20 @@ public class Gui extends Application
             {
                 event.consume();
             });
-        }
-        catch (IOException ex)
-        {
+        } catch (IOException ex) {
             ex.printStackTrace();
             Platform.exit();
         }
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
+        for (String arg : args) {
+            if(arg.equals("--env=dev"))
+            {
+                Constants.IS_DEV = true;
+            }
+        }
+        System.out.println("DEV ENVIRONMENT: " + Boolean.toString(Constants.IS_DEV));
         launch();
     }
 
